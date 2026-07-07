@@ -1,0 +1,377 @@
+---
+import heroImg from "../../assets/personas.png";
+import { Image } from "astro:assets";
+import leaft from "../../assets/decoration/leaf.svg"
+---
+
+<section class="hero" id="hero">
+  <div class="hero__bg">
+    <Image
+      src={heroImg}
+      alt="Grupo de personas sonriendo y conversando"
+      class="hero__img"
+      widths={[768, 1280, 1920]}
+      sizes="100vw"
+      loading="eager"
+      quality={85}
+    />
+    <div class="hero__overlay"></div>
+    <div class="hero__bottom-blur"></div>
+  </div>
+
+  <div class="hero__content">
+    <p class="hero__eyebrow">
+      <Image
+        src={leaft}
+        alt="Hoja"
+        class="hero__leaft"
+        sizes="10px"
+        width={20}
+        height={20}
+        loading="eager"
+        quality={85}
+      />
+      Construimos un futuro mejor
+    </p>
+
+    <h1 class="hero__title">
+      Construimos paz,<br />
+      <span class="hero__title-highlight">transformamos</span> vidas.
+    </h1>
+
+    <p class="hero__subtitle">
+      Impulsamos el desarrollo comunitario y la transformación social<br />
+      desde la empatía y la acción.
+    </p>
+
+    <div class="hero__buttons">
+      <a href="/proyectos" class="hero__cta hero__cta--primary" id="hero-cta">
+        Nuestros proyectos
+        <span class="hero__cta-arrow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </span>
+      </a>
+      <a href="/trabaja-con-nosotros" class="hero__cta hero__cta--outline">
+        Trabaja con nosotros
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 700px;
+    max-height: 1080px;
+    overflow: hidden;
+  }
+
+  /* ── Background Image ── */
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+  }
+
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.65) 0%,
+        rgba(0, 0, 0, 0.35) 40%,
+        rgba(0, 0, 0, 0.08) 65%,
+        transparent 100%
+      );
+  }
+
+  .hero__bottom-blur {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 280px;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    background: linear-gradient(180deg, #fffefa00 0%, #fffefa08 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* ── Content ── */
+  .hero__content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    max-width: 1320px;
+    margin-inline: auto;
+    padding: 0 var(--space-3xl) var(--space-3xl);
+  }
+
+  /* ── Eyebrow ── */
+  .hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: var(--space-md);
+  }
+
+  .hero__eyebrow::before,
+  .hero__eyebrow::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1.5px;
+    background: var(--color-primary);
+  }
+
+  .hero__eyebrow svg {
+    color: var(--color-primary);
+  }
+
+  /* ── Title ── */
+  .hero__title {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: clamp(2.5rem, 4vw + 1rem, 4.25rem);
+    line-height: 0.85;
+    letter-spacing: -3px;
+    color: #fff;
+    margin-bottom: var(--space-sm);
+  }
+
+  .hero__title-highlight {
+    font-family: var(--font-title);
+    font-style: italic;
+    font-weight: 400;
+    color: #2ad7c2;
+  }
+
+  /* ── Subtitle ── */
+  .hero__subtitle {
+    font-family: var(--font-body);
+    font-size: clamp(0.875rem, 1vw + 0.2rem, 1rem);
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.7;
+    margin-bottom: var(--space-xl);
+    max-width: 520px;
+  }
+
+  /* ── Buttons ── */
+  .hero__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  .hero__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: var(--radius-full);
+    letter-spacing: 0.2px;
+    transition: all 0.3s ease;
+  }
+
+  .hero__cta--primary {
+    color: #fff;
+    border-radius: 15px;
+    background: linear-gradient(1deg, #11bba9, #17897e);
+    letter-spacing: -0.025em;
+    box-shadow: 0px -1px #13ffeb, 0px 1px #1ad3c3, 0px 0px 0px 1px #0d968a;
+    font-weight: 300;
+    border: none;
+  }
+
+  .hero__cta--primary:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+    box-shadow: 0px -1px #13ffeb, 0px 2px 8px rgba(26, 211, 195, 0.4), 0px 0px 0px 1px #0d968a;
+  }
+
+  .hero__cta--outline {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    color: var(--color-primary);
+    background: #fff;
+    border-radius: 15px;
+    letter-spacing: -0.02em;
+    font-weight: 300;
+    border: 1px solid #fff;
+    isolation: isolate;
+  }
+
+  .hero__cta--outline:hover {
+    color: #fff;
+    border-color: #fff;
+    transform: translateY(-2px);
+  }
+
+  .hero__cta--outline::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -20px;
+    width: 0;
+    height: 0;
+    background: var(--color-secondary);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.7s cubic-bezier(0.16, 1, 0.3, 1), height 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: -1;
+  }
+
+  .hero__cta--outline:hover::before {
+    width: 520px;
+    height: 320px;
+  }
+
+  .hero__cta-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transition: background 0.3s ease;
+  }
+
+  .hero__cta--primary:hover .hero__cta-arrow {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 1024px) {
+    .hero__content {
+      padding: 0 var(--space-2xl) var(--space-2xl);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 100vh;
+      height: 100svh;
+    }
+
+    .hero__content {
+      padding: 0 var(--space-md) var(--space-xl);
+      justify-content: flex-end;
+      padding-bottom: 40px;
+    }
+
+    .hero__eyebrow {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      gap: 8px;
+      margin-bottom: var(--space-sm);
+    }
+
+    .hero__eyebrow::before,
+    .hero__eyebrow::after {
+      width: 20px;
+    }
+
+    .hero__title {
+      font-size: clamp(2rem, 8vw, 2.75rem);
+      line-height: 0.95;
+      letter-spacing: -1.5px;
+      margin-bottom: var(--space-md);
+    }
+
+    .hero__subtitle {
+      font-size: 14px;
+      line-height: 1.4;
+      margin-bottom: var(--space-lg);
+      padding: 0 var(--space-xs);
+    }
+
+    .hero__buttons {
+      width: 100%;
+      flex-direction: column;
+      gap: 12px;
+      padding: 0 var(--space-sm);
+    }
+
+    .hero__cta {
+      width: 100%;
+      justify-content: center;
+      padding: 14px 24px;
+    }
+  }
+
+  /* ── Animations ── */
+  @keyframes heroFadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes heroImgReveal {
+    from {
+      opacity: 0;
+      transform: scale(1.05);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .hero__img {
+    animation: heroImgReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .hero__eyebrow {
+    animation: heroFadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+  }
+
+  .hero__title {
+    animation: heroFadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.55s both;
+  }
+
+  .hero__subtitle {
+    animation: heroFadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both;
+  }
+
+  .hero__buttons {
+    animation: heroFadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.85s both;
+  }
+</style>
