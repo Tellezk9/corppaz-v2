@@ -1,0 +1,224 @@
+---
+import { Image } from "astro:assets";
+import agricultura from "../../assets/brands/Agricultura_gris.png";
+import alianzas from "../../assets/brands/Alianzas_gris.png";
+import faia from "../../assets/brands/Faia_gris.png";
+import santander from "../../assets/brands/Santander_logo_gris.png";
+import fiduagraria from "../../assets/brands/fiduagraria_gris.png";
+import presidencia from "../../assets/brands/presidencia_gris.png";
+
+const logos = [
+  { src: agricultura, alt: "Ministerio de Agricultura" },
+  { src: alianzas, alt: "Alianzas por el Territorio" },
+  { src: faia, alt: "Fondo de Acceso a Insumos Agropecuarios - FAIA" },
+  { src: santander, alt: "Gobernación de Santander" },
+  { src: fiduagraria, alt: "Fiduagraria" },
+  { src: presidencia, alt: "Presidencia de la República de Colombia" },
+];
+---
+
+<section class="aliados" id="aliados">
+  <div class="wrap">
+    <span class="aliados-label reveal">Aliados y entidades que confían en nosotros</span>
+    <div class="aliados-carousel reveal">
+      <div class="aliados-track" id="aliados-track">
+        <!-- Grupo 1 -->
+        <div class="aliados-group">
+          {logos.map((logo) => (
+            <Image src={logo.src} alt={logo.alt} class="aliado-logo" />
+          ))}
+        </div>
+        <!-- Grupo 2 -->
+        <div class="aliados-group" aria-hidden="true">
+          {logos.map((logo) => (
+            <Image src={logo.src} alt={logo.alt} class="aliado-logo" />
+          ))}
+        </div>
+        <!-- Grupo 3 -->
+        <div class="aliados-group" aria-hidden="true">
+          {logos.map((logo) => (
+            <Image src={logo.src} alt={logo.alt} class="aliado-logo" />
+          ))}
+        </div>
+        <!-- Grupo 4 -->
+        <div class="aliados-group" aria-hidden="true">
+          {logos.map((logo) => (
+            <Image src={logo.src} alt={logo.alt} class="aliado-logo" />
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Variables locales de compatibilidad */
+  .aliados {
+    --primary: var(--color-primary, #043a39);
+    --neutral: var(--color-neutral, #6B7280);
+    --divider: var(--color-divider, #E8E8E8);
+    --font-display: var(--font-title, 'DM Serif Display', serif);
+    --font-body: 'Inter', sans-serif;
+  }
+
+  /* ===== ESTILOS LOCALES / UTILIDADES ===== */
+  .wrap {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 clamp(24px, 6vw, 96px);
+  }
+
+  /* ===== ALIADOS ===== */
+  .aliados {
+    padding: 30px 0;
+    overflow: hidden;
+  }
+
+  .aliados .wrap {
+    display: flex;
+    flex-direction: column;
+    /* gap: 26px; */
+    align-items: center;
+    text-align: center;
+  }
+
+  .aliados-label{
+    display:flex;align-items:center;justify-content:center;gap:12px;
+    font-family:var(--font-display);font-style:italic;
+    font-size:clamp(1rem,1.5vw,1.2rem);
+    color:var(--primary);
+    text-align:center;
+    margin-bottom:18px;
+  }
+  .aliados-label::before,.aliados-label::after{
+    content:'';height:1px;width:clamp(24px,5vw,52px);background:var(--divider);
+  }
+
+  /* ===== CAROUSEL ===== */
+  .aliados-carousel {
+    width: 100%;
+    overflow: hidden;
+    /* margin-top: 10px; */
+    position: relative;
+    padding: 16px 0;
+    /* Máscara de degradado para desvanecer extremos de forma suave */
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 8%,
+      black 92%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 8%,
+      black 92%,
+      transparent 100%
+    );
+  }
+
+  .aliados-track {
+    display: flex;
+    width: max-content;
+    gap: 0; /* Sin gap entre grupos para que el cálculo por xPercent sea exacto */
+    cursor: grab;
+  }
+
+  .aliados-track:active {
+    cursor: grabbing;
+  }
+
+  .aliados-group {
+    display: flex;
+    align-items: center;
+    gap: 80px; /* Separación interna entre logos */
+    padding-right: 80px; /* Espaciado al final de cada grupo que actúa como unión uniforme */
+    flex-shrink: 0;
+  }
+
+  .aliado-logo {
+    height: clamp(34px, 4.5vw, 50px);
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(1) opacity(0.6);
+    transition: filter 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .aliado-logo:hover {
+    filter: grayscale(0) opacity(1);
+    transform: scale(1.06);
+  }
+
+  /* ===== ANIMACIONES REVEAL LOCALES ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .8s ease, transform .8s ease;
+  }
+
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:768px) {
+    .aliados-group {
+      gap: 48px;
+      padding-right: 48px;
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+
+  // Inicializar animación del carrusel infinito
+  const initCarousel = () => {
+    const track = document.getElementById("aliados-track");
+    if (!track) return;
+
+    // Con N=4 grupos idénticos colocados lado a lado, mover exactamente -25%
+    // desplaza el track el ancho exacto de 1 grupo, garantizando un loop continuo sin brincos.
+    gsap.to(track, {
+      xPercent: -25,
+      ease: "none",
+      duration: 18, // Velocidad de la marquesina
+      repeat: -1,
+    });
+  };
+
+  // Inicializar animaciones reveal al hacer scroll
+  const setupReveal = () => {
+    const section = document.getElementById("aliados");
+    if (!section) return;
+    const els = section.querySelectorAll(".reveal");
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add("in");
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    els.forEach(el => io.observe(el));
+  };
+
+  initCarousel();
+  setupReveal();
+
+  // Compatibilidad con transiciones de página de Astro
+  document.addEventListener("astro:after-swap", () => {
+    initCarousel();
+    setupReveal();
+  });
+</script>

@@ -1,0 +1,378 @@
+<section class="servicios section" id="servicios">
+  <div class="wrap">
+    <div class="servicios-header reveal">
+      <span class="eyebrow">Servicios</span>
+      <h2>
+        Consultoría y ejecución con <span class="accent-italic"
+          >impacto real</span>
+      </h2>
+      <p>
+        Diez líneas de servicio, siempre con acompañamiento técnico permanente a
+        las comunidades beneficiarias.
+      </p>
+    </div>
+    
+    <div class="servicios-list">
+      
+      <!-- Fila 1 -->
+      <div class="s-row reveal">
+        <span class="s-idx">(001)</span>
+        <div class="s-body">
+          <h4>Consultoría en Gestión de Proyectos</h4>
+          <p>
+            Formulación, ejecución y seguimiento de iniciativas de alto impacto
+            social.
+          </p>
+          <div class="s-meta">
+            <span class="s-meta-num">120+</span>
+            <span class="s-meta-lbl">Proyectos formulados</span>
+          </div>
+        </div>
+        <div class="s-thumb">
+          <img
+            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&auto=format&fit=crop"
+            alt="Consultoría en gestión de proyectos"
+          />
+        </div>
+      </div>
+
+      <!-- Fila 2 -->
+      <div class="s-row reveal">
+        <span class="s-idx">(002)</span>
+        <div class="s-body">
+          <h4>Asistencia Técnica Profesional</h4>
+          <p>
+            Acompañamiento permanente a comunidades en cada fase de ejecución.
+          </p>
+          <div class="s-meta">
+            <span class="s-meta-num">15+</span>
+            <span class="s-meta-lbl">Profesionales técnicos</span>
+          </div>
+        </div>
+        <div class="s-thumb">
+          <img
+            src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?q=80&w=800&auto=format&fit=crop"
+            alt="Asistencia técnica profesional"
+          />
+        </div>
+      </div>
+
+      <!-- Fila 3 -->
+      <div class="s-row reveal">
+        <span class="s-idx">(003)</span>
+        <div class="s-body">
+          <h4>Fortalecimiento Comunitario</h4>
+          <p>Programas de control social, liderazgo y asociatividad rural.</p>
+          <div class="s-meta">
+            <span class="s-meta-num">80+</span>
+            <span class="s-meta-lbl">Asociaciones capacitadas</span>
+          </div>
+        </div>
+        <div class="s-thumb">
+          <img
+            src="https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?q=80&w=800&auto=format&fit=crop"
+            alt="Fortalecimiento comunitario"
+          />
+        </div>
+      </div>
+
+      <!-- Fila 4 -->
+      <div class="s-row reveal">
+        <span class="s-idx">(004)</span>
+        <div class="s-body">
+          <h4>Desarrollo Rural y Agropecuario</h4>
+          <p>Unidades productivas en ganadería, cacao, apicultura y más.</p>
+          <div class="s-meta">
+            <span class="s-meta-num">3.200+</span>
+            <span class="s-meta-lbl">Productores beneficiados</span>
+          </div>
+        </div>
+        <div class="s-thumb">
+          <img
+            src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=800&auto=format&fit=crop"
+            alt="Desarrollo rural y agropecuario"
+          />
+        </div>
+      </div>
+
+      <!-- Fila 5 -->
+      <div class="s-row reveal">
+        <span class="s-idx">(005)</span>
+        <div class="s-body">
+          <h4>Asistencia Alimentaria y Humanitaria</h4>
+          <p>
+            Entrega de ayuda de emergencia a población vulnerable y migrante.
+          </p>
+          <div class="s-meta">
+            <span class="s-meta-num">35.000+</span>
+            <span class="s-meta-lbl">Kits entregados</span>
+          </div>
+        </div>
+        <div class="s-thumb">
+          <img
+            src="https://images.unsplash.com/photo-1615461066841-6116e61058f4?q=80&w=800&auto=format&fit=crop"
+            alt="Asistencia alimentaria y humanitaria"
+          />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Variables locales de compatibilidad */
+  .servicios {
+    --primary: var(--color-primary, #043a39);
+    --secondary-deep: #ef8f7d;
+    --secondary: var(--color-secondary, #f8aea1);
+    --divider: var(--color-divider, #e8e8e8);
+    --surface: var(--color-surface, #ffffff);
+    --text-soft: #5b6360;
+    --font-display: var(--font-title, "DM Serif Display", serif);
+    --font-body: "Inter", sans-serif;
+    --font-accent: var(--font-serif, "Instrument Serif", serif);
+  }
+
+  /* ===== ESTILOS LOCALES / UTILIDADES ===== */
+  .wrap {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 clamp(24px, 6vw, 96px);
+  }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--secondary-deep);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .eyebrow::before {
+    content: "";
+    width: 22px;
+    height: 1px;
+    background: var(--secondary-deep);
+    display: inline-block;
+  }
+
+  .accent-italic {
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-weight: 500;
+    color: var(--secondary-deep);
+    letter-spacing: 0.04rem;
+  }
+
+  .section {
+    padding: min(14vw, 120px) 0;
+  }
+
+  /* ===== SERVICIOS ===== */
+  .servicios .wrap {
+    display: block;
+  }
+
+  .servicios-header {
+    max-width: 640px;
+    margin: 0 auto 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 18px;
+  }
+
+  .servicios-header .eyebrow {
+    justify-content: center;
+  }
+
+  .servicios-header h2 {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: clamp(2.1rem, 4vw, 3rem);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    color: var(--primary);
+  }
+
+  .servicios-header p {
+    color: var(--text-soft);
+    font-size: 1rem;
+    max-width: 52ch;
+  }
+
+  .servicios-list {
+    grid-column: 1/-1;
+  }
+
+  .s-row {
+    display: grid;
+    grid-template-columns: 80px 1fr clamp(200px, 22vw, 320px);
+    gap: 40px;
+    align-items: center;
+    padding: 44px 0;
+    border-top: 1px solid var(--divider);
+    transition: background 0.25s;
+  }
+
+  .servicios-list .s-row:last-child {
+    border-bottom: 1px solid var(--divider);
+  }
+
+  .s-row:hover {
+    background: rgba(248, 174, 161, 0.04);
+  }
+
+  .s-idx {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-soft);
+    align-self: flex-start;
+    margin-top: 6px;
+  }
+
+  .s-body h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 12px;
+    letter-spacing: -0.04em;
+  }
+
+  .s-body p {
+    color: var(--text-soft);
+    font-size: 0.98rem;
+    max-width: 52ch;
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+
+  /* Estadísticas secundarias */
+  .s-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .s-meta-num {
+    font-family: var(--font-body);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--primary);
+  }
+
+  .s-meta-lbl {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-soft);
+  }
+
+  /* Contenedor de Imagen */
+  .s-thumb {
+    width: 100%;
+    aspect-ratio: 16/10;
+    border-radius: 18px;
+    overflow: hidden;
+    flex: none;
+    box-shadow: 0 10px 30px rgba(4, 58, 57, 0.08);
+  }
+
+  .s-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(0.3) saturate(1.05);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .s-row:hover .s-thumb img {
+    transform: scale(1.06);
+    filter: grayscale(0) saturate(1.1);
+  }
+
+  /* ===== ANIMACIONES REVEAL LOCALES ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.8s ease,
+      transform 0.8s ease;
+  }
+
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 860px) {
+    .s-row {
+      grid-template-columns: 60px 1fr;
+      gap: 20px;
+    }
+    
+    .s-thumb {
+      grid-column: 2;
+      max-width: 440px;
+      margin-top: 10px;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .s-row {
+      grid-template-columns: 1fr;
+      padding: 32px 0;
+    }
+    
+    .s-idx {
+      align-self: flex-start;
+      margin-top: 0;
+    }
+    
+    .s-thumb {
+      grid-column: 1;
+      max-width: 100%;
+    }
+  }
+</style>
+
+<script>
+  const setupReveal = () => {
+    const section = document.getElementById("servicios");
+    if (!section) return;
+    const els = section.querySelectorAll(".reveal");
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("in");
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.15 },
+    );
+    els.forEach((el) => io.observe(el));
+  };
+
+  setupReveal();
+  document.addEventListener("astro:after-swap", setupReveal);
+</script>

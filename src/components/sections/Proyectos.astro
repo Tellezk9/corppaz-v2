@@ -1,0 +1,237 @@
+<section class="proyectos section" id="proyectos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Impactos que <br> <span class="accent-italic">transforman vidas</span></h2>
+      <div>
+        <p>Una muestra de los proyectos que hemos ejecutado junto a comunidades y entidades aliadas.</p>
+        <a href="#" class="tail-link">Ver todos los proyectos →</a>
+      </div>
+    </div>
+    <div class="p-grid reveal">
+      <div class="p-card">
+        <img src="https://images.unsplash.com/photo-1615461066841-6116e61058f4?q=80&w=1200&auto=format&fit=crop" alt="Entrega de kits de alimentos" />
+        <div class="p-info">
+          <span class="p-tag">Norte de Santander</span>
+          <h4>Entrega de 35.771 kits de alimentos</h4>
+        </div>
+      </div>
+      <div class="p-card">
+        <img src="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?q=80&w=900&auto=format&fit=crop" alt="Fortalecimiento de medios de vida rurales" />
+        <div class="p-info">
+          <span class="p-tag">San José de Cúcuta</span>
+          <h4>Fortalecimiento de medios de vida rurales</h4>
+        </div>
+      </div>
+      <div class="p-card">
+        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=900&auto=format&fit=crop" alt="Mejoramiento ganadero y agropecuario" />
+        <div class="p-info">
+          <span class="p-tag">San Faustino y Guaramito</span>
+          <h4>Mejoramiento ganadero y agropecuario</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Variables locales de compatibilidad */
+  .proyectos {
+    --primary: var(--color-primary, #043a39);
+    --secondary-deep: #ef8f7d;
+    --secondary: var(--color-secondary, #f8aea1);
+    --divider: var(--color-divider, #E8E8E8);
+    --surface: var(--color-surface, #FFFFFF);
+    --text-soft: #5b6360;
+    --font-display: var(--font-title, 'DM Serif Display', serif);
+    --font-body: 'Inter', sans-serif;
+    --font-accent: var(--font-serif, "Instrument Serif", serif);
+  }
+
+  /* ===== ESTILOS LOCALES / UTILIDADES ===== */
+  .wrap {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 clamp(24px, 6vw, 96px);
+  }
+
+  .accent-italic {
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-weight: 500;
+    color: var(--secondary-deep);
+    letter-spacing: 0.06rem;
+  }
+
+  .section {
+    padding: min(14vw, 120px) 0;
+  }
+
+  .section-head {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 48px;
+    align-items: end;
+    margin-bottom: 64px;
+  }
+
+  .section-head h2 {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: clamp(2.1rem, 3.6vw, 3.1rem);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    color: var(--primary);
+  }
+
+  .section-head p {
+    color: var(--text-soft);
+    font-size: 1rem;
+    max-width: 38ch;
+  }
+
+  .section-head .tail-link {
+    display: inline-block;
+    margin-top: 16px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--primary);
+    border-bottom: 1px solid var(--secondary-deep);
+    padding-bottom: 2px;
+    transition: opacity .2s;
+  }
+
+  .section-head .tail-link:hover {
+    opacity: .65;
+  }
+
+  /* ===== PROYECTOS ===== */
+  .proyectos {
+    background: var(--surface);
+  }
+
+  .p-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 26px;
+  }
+
+  .p-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 4/5;
+  }
+
+  .p-grid .p-card:first-child {
+    grid-row: 1/3;
+    aspect-ratio: auto;
+  }
+
+  .p-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(.3) saturate(1.05);
+    transition: transform .6s ease;
+  }
+
+  .p-card:hover img {
+    transform: scale(1.06);
+  }
+
+  .p-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(4, 58, 57, .88) 0%, rgba(4, 58, 57, 0) 55%);
+    z-index: 1;
+  }
+
+  .p-info {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 26px;
+    z-index: 2;
+    color: #fff;
+  }
+
+  .p-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    background: rgba(248, 174, 161, .9);
+    color: var(--primary);
+    padding: 5px 12px;
+    border-radius: 100px;
+    margin-bottom: 10px;
+  }
+
+  .p-info h4 {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1.4rem;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+  }
+
+  /* ===== ANIMACIONES REVEAL LOCALES ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .8s ease, transform .8s ease;
+  }
+
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:860px) {
+    .p-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .p-grid .p-card:first-child {
+      grid-row: auto;
+      aspect-ratio: 4/5;
+    }
+
+    .section-head {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+  }
+</style>
+
+<script>
+  const setupReveal = () => {
+    const section = document.getElementById('proyectos');
+    if (!section) return;
+    const els = section.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    els.forEach(el => io.observe(el));
+  };
+
+  setupReveal();
+  document.addEventListener('astro:after-swap', setupReveal);
+</script>

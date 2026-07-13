@@ -1,0 +1,203 @@
+---
+import { Image } from "astro:assets";
+import logoLetrasBlancas from "../assets/Logo_corppaz_letras_blancas.png";
+---
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="foot-word">
+          <Image src={logoLetrasBlancas} alt="Imagen de fondo" width={300} />
+        </div>
+        <small
+          >Corporación Todos por la Paz — trabajamos por el desarrollo integral
+          y la construcción de paz en Colombia. NIT 900.964.003-3</small
+        >
+        <div class="foot-social">
+          <a href="#" aria-label="Facebook" target="_blank" rel="noopener">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              ><path
+                d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+              ></path></svg
+            >
+          </a>
+          <a href="#" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              ><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle
+                cx="12"
+                cy="12"
+                r="4"></circle><circle
+                cx="17.5"
+                cy="6.5"
+                r="1"
+                fill="currentColor"
+                stroke="none"></circle></svg
+            >
+          </a>
+          <a href="#" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              ><path
+                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+              ></path><rect x="2" y="9" width="4" height="12"></rect><circle
+                cx="4"
+                cy="4"
+                r="2"></circle></svg
+            >
+          </a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>Sobre Nosotros</h5>
+        <a href="#historia">Historia</a><a href="#">Equipo</a><a href="#"
+          >Transparencia</a
+        >
+      </div>
+      <div class="foot-col">
+        <h5>Servicios</h5>
+        <a href="#servicios">Consultoría</a><a href="#servicios"
+          >Asistencia Técnica</a
+        ><a href="#servicios">Programas</a>
+      </div>
+      <div class="foot-col">
+        <h5>Contacto</h5>
+        <a href="#contacto">Escríbenos</a><a href="#">Bucaramanga, Colombia</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Corppaz — Corporación Todos por la Paz</span>
+      <span>Unión que transforma</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  /* Variables locales de compatibilidad */
+  footer {
+    --secondary: var(--color-secondary, #f8aea1);
+    --font-display: var(--font-title, "DM Serif Display", serif);
+    --font-body: "Inter", sans-serif;
+  }
+
+  /* ===== ESTILOS LOCALES / UTILIDADES ===== */
+  .wrap {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 clamp(24px, 6vw, 96px);
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #022827;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 80px 0 30px;
+  }
+
+  .foot-top {
+    display: grid;
+    grid-template-columns: 1.6fr repeat(3, 1fr);
+    gap: 40px;
+    padding-bottom: 60px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .foot-word {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    color: #fff;
+    line-height: 1;
+  }
+
+  .foot-word small {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.55);
+    margin-top: 14px;
+    font-weight: 400;
+    max-width: 34ch;
+    line-height: 1.6;
+  }
+
+  .foot-col h5 {
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .foot-col a {
+    display: block;
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    transition: color 0.2s;
+  }
+
+  .foot-col a:hover {
+    color: var(--secondary);
+  }
+
+  .foot-bottom {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+    padding-top: 28px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.45);
+  }
+
+  .foot-social {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .foot-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.75);
+    transition:
+      background 0.25s ease,
+      border-color 0.25s ease,
+      color 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .foot-social a:hover {
+    background: var(--secondary);
+    border-color: var(--secondary);
+    color: var(--primary, #043a39);
+    transform: translateY(-3px);
+  }
+
+  .foot-social svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 820px) {
+    .foot-top {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

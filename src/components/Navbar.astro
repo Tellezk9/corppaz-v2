@@ -148,27 +148,15 @@ import { Image } from "astro:assets";
 </nav>
 
 <style>
-  @keyframes navSlideDown {
-    from {
-      opacity: 0;
-      transform: translateX(-50%) translateY(-30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
-  }
-
   .navbar {
-    position: absolute;
+    position: fixed;
     top: var(--space-lg);
     left: 50%;
     transform: translateX(-50%);
     width: calc(100% - var(--space-3xl));
     max-width: 1320px;
     z-index: 100;
-    width: 60%;
-    animation: navSlideDown 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+    opacity: 0;
   }
 
   .navbar__inner {
@@ -495,6 +483,11 @@ import { Image } from "astro:assets";
 </style>
 
 <script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
   const toggleBtn = document.getElementById("navbar-toggle");
   const navbar = document.getElementById("navbar");
   const dropdownBtn = document.querySelector(".navbar__link--dropdown");
@@ -512,6 +505,123 @@ import { Image } from "astro:assets";
       if (window.innerWidth <= 768) {
         e.preventDefault();
         dropdownLi.classList.toggle("navbar__dropdown--active");
+      }
+    });
+  }
+
+  if (navbar) {
+    // Animación de entrada (spring con bounce: 0.2, duration: 1s, delay: 0)
+    gsap.fromTo(navbar,
+      {
+        opacity: 0,
+        y: -30,
+        xPercent: -50
+      },
+      {
+        opacity: 1,
+        y: 0,
+        xPercent: -50,
+        duration: 1.0,
+        ease: "back.out(0.6)", // bounce: 0.2
+        delay: 0
+      }
+    );
+
+    const mm = gsap.matchMedia();
+ 
+    // Pantallas grandes (Desktop >= 1200px)
+    mm.add("(min-width: 1200px)", () => {
+      const shrinkAnim = gsap.to(navbar, {
+        width: "55%",
+        duration: 0.4,
+        ease: "back.out(0.6)", // bounce: 0.2
+        paused: true,
+        overwrite: "auto"
+      });
+ 
+      ScrollTrigger.create({
+        start: "top+=80 top",
+        end: 99999,
+        onUpdate: (self) => {
+          if (self.scroll() > 80) {
+            shrinkAnim.play();
+          } else {
+            shrinkAnim.reverse();
+          }
+        }
+      });
+    });
+ 
+    // Pantallas medianas / Tablets (769px a 1199px)
+    mm.add("(min-width: 769px) and (max-width: 1199px)", () => {
+      const shrinkAnim = gsap.to(navbar, {
+        width: "80%",
+        duration: 0.4,
+        ease: "back.out(0.6)", // bounce: 0.2
+        paused: true,
+        overwrite: "auto"
+      });
+ 
+      ScrollTrigger.create({
+        start: "top+=80 top",
+        end: 99999,
+        onUpdate: (self) => {
+          if (self.scroll() > 80) {
+            shrinkAnim.play();
+          } else {
+            shrinkAnim.reverse();
+          }
+        }
+      });
+    });
+
+    // Ocultar/Mostrar Navbar según dirección de scroll
+    let isNavbarHidden = false;
+
+    ScrollTrigger.create({
+      start: "top top",
+      end: 99999,
+      onUpdate: (self) => {
+        const currentScroll = self.scroll();
+        const direction = self.direction; // 1 = bajando, -1 = subiendo
+
+        // Mientras estemos en el Hero (primer viewport completo), se muestra siempre
+        // para que se aprecie la animación de encogimiento
+        if (currentScroll < window.innerHeight) {
+          if (isNavbarHidden) {
+            gsap.to(navbar, {
+              y: 0,
+              duration: 0.35,
+              ease: "power2.out",
+              overwrite: "auto"
+            });
+            isNavbarHidden = false;
+          }
+          return;
+        }
+
+        // Si bajamos, ocultamos (a menos que el menú móvil esté abierto)
+        if (direction === 1 && !isNavbarHidden) {
+          if (!navbar.classList.contains("navbar--open")) {
+            gsap.to(navbar, {
+              y: -120, // sube fuera del viewport
+              duration: 0.35,
+              ease: "power2.out",
+              overwrite: "auto"
+            });
+            isNavbarHidden = true;
+          }
+        } 
+        // Si subimos, mostramos de inmediato
+        else if (direction === -1 && isNavbarHidden) {
+          gsap.to(navbar, {
+            y: 0,
+            duration: 0.35,
+            ease: "power2.out",
+            overwrite: "auto"
+          });
+          isNavbarHidden = false;
+        }
       }
     });
   }

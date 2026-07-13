@@ -1,0 +1,289 @@
+<section class="hacemos section" id="hacemos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>
+        Cuatro líneas de acción, <br> <span class="accent-italic"
+          >un mismo propósito</span
+        >
+      </h2>
+      <div>
+        <p>
+          Trabajamos incansablemente para crear condiciones de vida dignas en
+          cada comunidad que acompañamos.
+        </p>
+      </div>
+    </div>
+    <div class="hacemos-grid reveal">
+      <div class="ac-card">
+        <span class="ac-num">01</span>
+        <div class="ac-icon">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.4"
+          >
+            <path
+              d="M12 21s-7-4.5-9.5-9C.5 8 2 4 6 4c2 0 3.5 1.2 4 2.2C10.5 5.2 12 4 14 4c4 0 5.5 4 3.5 8-2.5 4.5-9.5 9-9.5 9z"
+            ></path>
+          </svg>
+        </div>
+        <h4>Asistencia Humanitaria</h4>
+        <p>
+          Ayuda inmediata y digna en emergencias para población vulnerable y
+          migrante.
+        </p>
+      </div>
+      <div class="ac-card">
+        <span class="ac-num">02</span>
+        <div class="ac-icon">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.4"
+          >
+            <circle cx="12" cy="8" r="4"></circle>
+            <path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"></path>
+          </svg>
+        </div>
+        <h4>Desarrollo Social</h4>
+        <p>
+          Programas de intervención social y psicosocial que mejoran la calidad
+          de vida.
+        </p>
+      </div>
+      <div class="ac-card">
+        <span class="ac-num">03</span>
+        <div class="ac-icon">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.4"
+          >
+            <path d="M12 2v20M6 8c0 4 3 6 6 6s6-2 6-6"></path>
+          </svg>
+        </div>
+        <h4>Agricultura y Cuidado Ambiental</h4>
+        <p>
+          Fortalecimiento de cadenas agropecuarias y proyectos de restauración
+          ambiental.
+        </p>
+      </div>
+      <div class="ac-card">
+        <span class="ac-num">04</span>
+        <div class="ac-icon">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.4"
+          >
+            <path d="M4 20c0-4 4-6 8-6s8 2 8 6M12 11a4 4 0 100-8 4 4 0 000 8z"
+            ></path>
+          </svg>
+        </div>
+        <h4>Fortalecimiento Comunitario</h4>
+        <p>
+          Formación de líderes y organizaciones para un control social más
+          sólido.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Variables locales de compatibilidad */
+  .hacemos {
+    --primary: var(--color-primary, #043a39);
+    --secondary-deep: #ef8f7d;
+    --secondary: var(--color-secondary, #f8aea1);
+    --divider: var(--color-divider, #e8e8e8);
+    --bg: var(--color-bg, #faf8f5);
+    --surface: var(--color-surface, #ffffff);
+    --text-soft: #5b6360;
+    --font-display: var(--font-title, "DM Serif Display", serif);
+    --font-body: "Inter", sans-serif;
+    --font-accent: var(--font-serif, "Instrument Serif", serif);
+  }
+
+  /* ===== ESTILOS LOCALES / UTILIDADES ===== */
+  .wrap {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 clamp(24px, 6vw, 96px);
+  }
+
+  .accent-italic {
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-weight: 500;
+    color: var(--secondary-deep);
+    letter-spacing: 0.04rem;
+  }
+
+  .section {
+    padding: min(5vw, 120px) 0;
+  }
+
+  .section-head {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 48px;
+    align-items: end;
+    margin-bottom: 64px;
+  }
+
+  .section-head h2 {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: clamp(2.1rem, 3.6vw, 3.1rem);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    color: var(--primary);
+  }
+
+  .section-head p {
+    color: var(--text-soft);
+    font-size: 1rem;
+    max-width: 38ch;
+  }
+
+  /* ===== QUE HACEMOS ===== */
+  .hacemos {
+    background: var(--surface);
+  }
+
+  .hacemos-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .ac-card {
+    position: relative;
+    background: var(--bg);
+    border: 1px solid var(--divider);
+    border-radius: 20px;
+    padding: 38px 28px;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease,
+      border-color 0.3s ease;
+  }
+
+  .ac-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 60px -28px rgba(4, 58, 57, 0.28);
+    border-color: transparent;
+  }
+
+  .ac-num {
+    position: absolute;
+    top: 26px;
+    right: 26px;
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: var(--divider);
+  }
+
+  .ac-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(248, 174, 161, 0.28);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary-deep);
+    margin-bottom: 26px;
+  }
+
+  .ac-icon svg {
+    width: 23px;
+    height: 23px;
+    display: block;
+  }
+
+  .ac-card h4 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .ac-card p {
+    color: var(--text-soft);
+    font-size: 0.89rem;
+    line-height: 1.65;
+  }
+
+  /* ===== ANIMACIONES REVEAL LOCALES ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.8s ease,
+      transform 0.8s ease;
+  }
+
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 980px) {
+    .hacemos-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section-head {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .hacemos-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  const setupReveal = () => {
+    const section = document.getElementById("hacemos");
+    if (!section) return;
+    const els = section.querySelectorAll(".reveal");
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("in");
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.15 },
+    );
+    els.forEach((el) => io.observe(el));
+  };
+
+  setupReveal();
+  document.addEventListener("astro:after-swap", setupReveal);
+</script>

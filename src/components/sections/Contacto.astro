@@ -1,0 +1,241 @@
+---
+import { Image } from "astro:assets";
+import logoBig from "../../assets/corppaz-icon-big.png";
+---
+<section class="cta section" id="contacto">
+  <div class="cta-rings" style="">
+    <Image 
+      src={logoBig}
+      alt="Imagen de fondo" 
+      width={525}
+      height={510} 
+    />
+  </div>
+  <!-- <svg class="cta-rings" viewBox="0 0 400 400" fill="none" aria-hidden="true">
+    <circle cx="160" cy="200" r="150" stroke="white" stroke-width="1" />
+    <circle cx="270" cy="200" r="150" stroke="#f8aea1" stroke-width="1" />
+  </svg> -->
+  <div class="wrap">
+    <div class="cta-copy reveal">
+      <span class="eyebrow">Contacto</span>
+      <h2>Construyamos paz, juntos.</h2>
+      <p>Si tienes un proyecto, una idea o quieres ser parte del cambio, conversemos. Trabajamos con entidades públicas, privadas y comunidades de base en todo el país.</p>
+    </div>
+    <form class="form-card reveal" id="contact-form">
+      <input type="text" placeholder="Nombre completo" required />
+      <input type="email" placeholder="Correo electrónico" required />
+      <textarea placeholder="¿En qué podemos ayudarte?" required></textarea>
+      <button type="submit" class="btn btn-dark">Enviar mensaje</button>
+    </form>
+  </div>
+</section>
+
+<style>
+  /* Variables locales de compatibilidad */
+  .cta {
+    --primary: var(--color-primary, #043a39);
+    --primary-soft: #0d5250;
+    --secondary-deep: #ef8f7d;
+    --secondary: var(--color-secondary, #f8aea1);
+    --divider: var(--color-divider, #E8E8E8);
+    --surface: var(--color-surface, #FFFFFF);
+    --text: var(--color-dark, #202124);
+    --font-body: 'Inter', sans-serif;
+  }
+
+  /* ===== ESTILOS LOCALES / UTILIDADES ===== */
+  .wrap {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 clamp(24px, 6vw, 96px);
+  }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--secondary-deep);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .eyebrow::before {
+    content: '';
+    width: 22px;
+    height: 1px;
+    background: var(--secondary-deep);
+    display: inline-block;
+  }
+
+  .section {
+    padding: min(14vw, 120px) 0;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    transition: transform .25s ease, background .25s ease, color .25s ease;
+  }
+
+  .btn-dark {
+    background: var(--primary);
+    color: #fff;
+  }
+
+  .btn-dark:hover {
+    background: var(--primary-soft);
+    transform: translateY(-2px);
+  }
+
+  /* ===== CTA / CONTACT ===== */
+  .cta {
+    position: relative;
+    background: var(--primary);
+    color: #fff;
+    overflow: hidden;
+  }
+
+  .cta-rings {
+    position: absolute;
+    right: 0%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 520px;
+    opacity: .18;
+  }
+
+  .cta .wrap {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 0.9fr;
+    gap: 70px;
+    align-items: center;
+  }
+
+  .cta-copy .eyebrow {
+    color: var(--secondary);
+  }
+
+  .cta-copy .eyebrow::before {
+    background: var(--secondary);
+  }
+
+  .cta-copy h2 {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    margin-bottom: 20px;
+  }
+
+  .cta-copy p {
+    color: rgba(255, 255, 255, .78);
+    max-width: 42ch;
+    margin-bottom: 30px;
+  }
+
+  .form-card {
+    background: var(--surface);
+    border-radius: 20px;
+    padding: 36px;
+    box-shadow: 0 40px 80px -20px rgba(0, 0, 0, .4);
+  }
+
+  .form-card input,
+  .form-card textarea {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--divider);
+    padding: 14px 4px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: var(--text);
+    background: transparent;
+    margin-bottom: 18px;
+  }
+
+  .form-card input:focus,
+  .form-card textarea:focus {
+    outline: none;
+    border-color: var(--secondary-deep);
+  }
+
+  .form-card textarea {
+    resize: none;
+    height: 90px;
+  }
+
+  .form-card button {
+    width: 100%;
+    margin-top: 6px;
+    justify-content: center;
+  }
+
+  /* ===== ANIMACIONES REVEAL LOCALES ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .8s ease, transform .8s ease;
+  }
+
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:820px) {
+    .cta .wrap {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+</style>
+
+<script>
+  const setupReveal = () => {
+    const section = document.getElementById('contacto');
+    if (!section) return;
+    const els = section.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    els.forEach(el => io.observe(el));
+  };
+
+  setupReveal();
+  document.addEventListener('astro:after-swap', setupReveal);
+
+  // Manejar el submit del formulario de manera local
+  const form = document.getElementById('contact-form');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      (form as HTMLFormElement).reset();
+      alert('Gracias, te contactaremos pronto.');
+    });
+  }
+</script>

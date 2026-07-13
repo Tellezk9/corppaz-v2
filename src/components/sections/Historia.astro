@@ -1,0 +1,550 @@
+<section class="historia section" id="historia">
+  <div class="wrap">
+    <div class="historia-header">
+      <span class="eyebrow">Nuestra Historia</span>
+      <h2>
+        Una historia de unión y <span class="accent-teal">propósito</span>
+      </h2>
+      <p>
+        Desde Bucaramanga hasta la frontera con Venezuela, hemos construido una
+        red de confianza que hoy transforma el territorio colombiano.
+      </p>
+    </div>
+    <div class="wt-timeline">
+      <div class="wt-row">
+        <div class="wt-media">
+          <img
+            src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop"
+            alt="Fundación de Corppaz en Bucaramanga"
+          />
+        </div>
+        <div class="wt-num"><span>1</span></div>
+        <div class="wt-text">
+          <span class="wt-year">2016</span>
+          <h4>Fundación en Bucaramanga</h4>
+          <p>
+            Corppaz nace como entidad sin ánimo de lucro, con el propósito de
+            trabajar por comunidades vulnerables.
+          </p>
+        </div>
+      </div>
+      <div class="wt-row">
+        <div class="wt-text">
+          <span class="wt-year">2018</span>
+          <h4>Equipo interdisciplinario</h4>
+          <p>
+            Crece un equipo profesional capaz de formular y ejecutar proyectos
+            de alto impacto social.
+          </p>
+        </div>
+        <div class="wt-num"><span>2</span></div>
+        <div class="wt-media">
+          <img
+            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&auto=format&fit=crop"
+            alt="Equipo interdisciplinario de Corppaz"
+          />
+        </div>
+      </div>
+      <div class="wt-row">
+        <div class="wt-media">
+          <img
+            src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?q=80&w=800&auto=format&fit=crop"
+            alt="Alianzas estratégicas con entidades nacionales"
+          />
+        </div>
+        <div class="wt-num"><span>3</span></div>
+        <div class="wt-text">
+          <span class="wt-year">2020</span>
+          <h4>Alianzas estratégicas</h4>
+          <p>
+            Nos consolidamos como aliado de la UNGRD, la Universidad Militar
+            Nueva Granada y entidades de seis departamentos.
+          </p>
+        </div>
+      </div>
+      <div class="wt-row">
+        <div class="wt-text">
+          <span class="wt-year">2021</span>
+          <h4>Expansión del impacto</h4>
+          <p>
+            Ampliamos nuestro campo de acción a medio ambiente, agricultura,
+            asistencia alimentaria, deporte y cultura ciudadana.
+          </p>
+        </div>
+        <div class="wt-num"><span>4</span></div>
+        <div class="wt-media">
+          <img
+            src="https://images.unsplash.com/photo-1591189863430-ab87e120f312?q=80&w=800&auto=format&fit=crop"
+            alt="Expansión del impacto de Corppaz"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="wt-close">
+      <div class="wt-close-dot" id="wt-close-dot"></div>
+      <p class="wt-close-quote">
+        "Diez años después, seguimos construyendo el mismo propósito: unión que
+        transforma."
+      </p>
+      <a href="#hacemos" class="btn btn-dark">Conoce qué hacemos hoy</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Variables locales de compatibilidad */
+  .historia {
+    --primary: var(--color-primary, #043a39);
+    --secondary-deep: #ef8f7d;
+    --teal: #3fb9a8;
+    --divider: var(--color-divider, #e8e8e8);
+    --bg: var(--color-bg, #faf8f5);
+    --surface: var(--color-surface, #ffffff);
+    --text-soft: #5b6360;
+    --font-display: var(--font-title, "DM Serif Display", serif);
+    --font-accent: var(--font-serif, "Instrument Serif", serif);
+    --font-body: "Inter", sans-serif;
+  }
+
+  /* ===== ESTILOS LOCALES / UTILIDADES ===== */
+  .wrap {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 clamp(24px, 6vw, 96px);
+  }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--secondary-deep);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .eyebrow::before {
+    content: "";
+    width: 22px;
+    height: 1px;
+    background: var(--secondary-deep);
+    display: inline-block;
+  }
+
+  .eyebrow.center {
+    justify-content: center;
+  }
+
+  .accent-teal {
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-weight: 500;
+    color: var(--secondary-deep);
+    letter-spacing: 0.0;
+  }
+
+  .section {
+    padding: min(14vw, 120px) 0;
+  }
+
+  /* ===== HISTORIA ===== */
+  .historia {
+    position: relative;
+    overflow: hidden;
+    background: var(--surface);
+  }
+
+  .historia-header {
+    max-width: 640px;
+    margin: 0 auto 80px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .historia-header .eyebrow {
+    justify-content: center;
+  }
+
+  .historia-header h2 {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: clamp(2.1rem, 4vw, 3rem);
+    color: var(--primary);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+  }
+
+  .historia-header p {
+    color: var(--text-soft);
+    font-size: 1rem;
+    max-width: 52ch;
+  }
+
+  .wt-timeline {
+    position: relative;
+    --clip-progress: 0%;
+  }
+
+  .wt-timeline::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 20px;
+    bottom: -80px; /* Extendido para bajar continuo hasta la bolita final */
+    width: 1.5px;
+    background: var(--divider);
+    transform: translateX(-50%);
+    z-index: 0;
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% var(--clip-progress),
+      0 var(--clip-progress)
+    );
+  }
+
+  .wt-close-dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--secondary-deep);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transform: scale(0);
+  }
+  .wt-close {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+    padding-top: 70px;
+    opacity: 0;
+    transform: translateY(30px);
+    position: relative;
+  }
+  .wt-close-quote {
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    color: var(--primary);
+    max-width: 36ch;
+  }
+
+  /* Estilos del Botón Local */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.92rem;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .btn-dark {
+    background: var(--primary);
+    color: var(--surface) !important;
+    border: 1px solid var(--primary);
+  }
+
+  .btn-dark:hover {
+    background: var(--secondary-deep);
+    border-color: var(--secondary-deep);
+    color: var(--primary) !important;
+    transform: translateY(-2px);
+  }
+  .wt-row {
+    display: grid;
+    grid-template-columns: 1fr 72px 1fr;
+    gap: 44px;
+    align-items: center;
+    padding: 50px 0;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  .wt-media {
+    border-radius: 18px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    box-shadow: 0 30px 60px -28px rgba(4, 58, 57, 0.28);
+  }
+
+  .wt-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(0.3) saturate(1.05);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .wt-media:hover img {
+    transform: scale(1.08);
+    filter: grayscale(0) saturate(1.15);
+  }
+
+  .wt-num {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    flex: none;
+    justify-self: center;
+    background: var(--bg);
+    border: 1px solid var(--divider);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--primary);
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  .wt-text h4 {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 4px;
+    letter-spacing: -0.04rem;
+  }
+
+  .wt-text .wt-year {
+    color: var(--secondary-deep);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .wt-text p {
+    color: var(--text-soft);
+    font-size: 0.95rem;
+    max-width: 42ch;
+  }
+
+  /* ===== ANIMACIONES REVEAL LOCALES ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.8s ease,
+      transform 0.8s ease;
+  }
+
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 800px) {
+    .wt-timeline::before {
+      display: none;
+    }
+
+    .wt-row {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      padding: 32px 0;
+      text-align: left;
+    }
+
+    .wt-row .wt-num {
+      justify-self: start;
+      order: -1;
+    }
+
+    .wt-row .wt-media {
+      order: 0;
+    }
+
+    .wt-close-dot {
+      display: none;
+    }
+
+    .wt-close {
+      padding-top: 10px;
+    }
+
+    .wt-close-quote {
+      font-family: var(--font-accent);
+      font-style: italic;
+      font-size: clamp(1.15rem, 2vw, 1.4rem);
+      color: var(--primary);
+      max-width: 36ch;
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const initTimelineAnimation = () => {
+    const section = document.getElementById("historia");
+    if (!section) return;
+
+    // 1. Animación continua de la línea vertical principal que se dibuja con el scroll (modifica la variable CSS)
+    const timeline = section.querySelector(".wt-timeline");
+    if (timeline) {
+      gsap.to(timeline, {
+        "--clip-progress": "100%",
+        ease: "none",
+        scrollTrigger: {
+          trigger: timeline,
+          start: "top 70%",
+          end: "bottom 55%",
+          scrub: true,
+        },
+      });
+    }
+
+    // 2. Animación pop bounce de los números wt-num (reversible al subir la página)
+    const nums = section.querySelectorAll(".wt-num");
+    nums.forEach((num) => {
+      gsap.fromTo(
+        num,
+        {
+          scale: 0,
+          opacity: 0,
+        },
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 0.5,
+          ease: "back.out(1.7)",
+          scrollTrigger: {
+            trigger: num,
+            start: "top 78%",
+            toggleActions: "play none none reverse",
+          },
+        },
+      );
+    });
+
+    // 3. Animación de reveal reversible para el header
+    const header = section.querySelector(".historia-header");
+    if (header) {
+      gsap.fromTo(
+        header,
+        {
+          opacity: 0,
+          y: 30,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: header,
+            start: "top 90%",
+            toggleActions: "play none none reverse",
+          },
+        },
+      );
+    }
+
+    // 4. Animación de reveal reversible para cada fila de la cronología
+    const rows = section.querySelectorAll(".wt-row");
+    rows.forEach((row) => {
+      gsap.fromTo(
+        row,
+        {
+          opacity: 0,
+          y: 40,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: row,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+        },
+      );
+    });
+
+    // 5. Animación de reveal reversible para el bloque de cierre y la bolita final
+    const closeDot = section.querySelector("#wt-close-dot");
+    if (closeDot) {
+      gsap.fromTo(
+        closeDot,
+        {
+          scale: 0,
+          opacity: 0,
+        },
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 0.5,
+          ease: "back.out(2)",
+          scrollTrigger: {
+            trigger: closeDot,
+            start: "top 108%",
+            toggleActions: "play none none reverse",
+          },
+        },
+      );
+    }
+
+    const closeBlock = section.querySelector(".wt-close");
+    if (closeBlock) {
+      gsap.fromTo(
+        closeBlock,
+        {
+          opacity: 0,
+          y: 30,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: closeBlock,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+        },
+      );
+    }
+  };
+
+  initTimelineAnimation();
+  document.addEventListener("astro:after-swap", initTimelineAnimation);
+</script>
