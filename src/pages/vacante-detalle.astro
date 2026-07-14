@@ -1,0 +1,957 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Detalle de Vacante — CORPPAZ" description="Detalles de la convocatoria de empleo de la Corporación Todos por la Paz.">
+  <Navbar />
+
+  <!-- Contenedor general que se mostrará solo cuando los datos estén listos -->
+  <div id="vacante-container" class="vacante-loading">
+    
+    <!-- ===== HEADER VACANTE ===== -->
+    <section class="v-header">
+      <div class="wrap">
+        <a href="/vacantes" class="back-link">← Volver a vacantes</a>
+        <div class="v-kicker">Marca el ritmo de tu carrera</div>
+        <h1 id="v-title">Cargando vacante...</h1>
+        <div class="v-subtitle" id="v-subtitle"></div>
+        <div class="v-meta">
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z"></path>
+              <circle cx="12" cy="10" r="2.5"></circle>
+            </svg>
+            <span id="meta-location">...</span>
+          </span>
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="3" y="7" width="18" height="13" rx="2"></rect>
+              <path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"></path>
+            </svg>
+            <span id="meta-area">...</span>
+          </span>
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path>
+              <path d="M14 2v6h6"></path>
+            </svg>
+            <span id="meta-contract">...</span>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== LAYOUT PRINCIPAL ===== -->
+    <div class="wrap">
+      <div class="v-layout">
+        <main class="v-main">
+
+          <h2>Contexto y antecedentes</h2>
+          <p id="v-antecedentes">...</p>
+
+          <h2>Objetivo de la contratación</h2>
+          <p id="v-objeto">...</p>
+
+          <h2>Alcance del trabajo</h2>
+          <p id="v-alcance">...</p>
+
+          <!-- Secciones Dinámicas -->
+          <div id="sec-actividades" class="dynamic-sec">
+            <h2>¿A qué retos te enfrentarás?</h2>
+            <ul id="list-actividades"></ul>
+          </div>
+
+          <div id="sec-productos" class="dynamic-sec">
+            <h2>Entregables y productos esperados</h2>
+            <ul id="list-productos"></ul>
+          </div>
+
+          <div id="sec-perfil" class="dynamic-sec">
+            <h2>Perfil y requisitos</h2>
+            <ul id="list-perfil"></ul>
+          </div>
+
+          <div id="sec-documentos" class="dynamic-sec">
+            <h2>Documentación para postularse</h2>
+            <ul id="list-documentos"></ul>
+          </div>
+
+          <div id="sec-principios" class="v-callout dynamic-sec">
+            <h3>Compromiso y principios éticos (PEAS)</h3>
+            <p>El contratista deberá cumplir con los más altos estándares éticos, en particular:</p>
+            <ul id="list-principios"></ul>
+          </div>
+
+          <div class="v-mini-grid">
+            <div class="v-mini-card" id="card-supervision">
+              <h4>Supervisión</h4>
+              <p id="v-supervisor">...</p>
+            </div>
+            <div class="v-mini-card" id="card-pago">
+              <h4>Esquema de pago</h4>
+              <p id="v-total-value" class="total-value-box" style="display:none;"></p>
+              <p id="v-forma-pago">...</p>
+            </div>
+          </div>
+
+        </main>
+
+        <aside class="v-sidebar">
+          <div class="v-summary">
+            <h3>Resumen de la vacante</h3>
+            <div class="v-field"><span class="lbl">Ubicación</span><span class="val" id="summary-location">...</span></div>
+            <div class="v-field"><span class="lbl">Área</span><span class="val" id="summary-area">...</span></div>
+            <div class="v-field"><span class="lbl">Contrato</span><span class="val" id="summary-contract">...</span></div>
+            <div class="v-field"><span class="lbl">Honorarios</span><span class="val" id="summary-salary">...</span></div>
+            <div class="v-field" id="summary-total-val-row" style="display:none;"><span class="lbl">Valor total del contrato</span><span class="val" id="summary-total-val">...</span></div>
+            <div class="v-field"><span class="lbl">Duración</span><span class="val" id="summary-duration">...</span></div>
+            <div class="v-field"><span class="lbl">Cierre de convocatoria</span><span class="val deadline" id="summary-deadline">...</span></div>
+            
+            <div class="postulation-action-box">
+              <button id="btn-apply-email" class="btn btn-dark">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                Postularse por Correo
+              </button>
+              <div id="copied-toast" class="v-toast" style="display:none;">
+                ¡Correos copiados al portapapeles! Abriendo cliente de correo...
+              </div>
+            </div>
+          </div>
+          <div class="v-apply">
+            <h4>¿Cómo postularse?</h4>
+            
+            <div class="popover-wrapper" id="sec-instrucciones" style="display:none;">
+              <button id="btn-toggle-instructions" class="info-btn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                Instrucciones y Notas de envío
+              </button>
+              
+              <div id="instructions-popover" class="instructions-popover" style="display:none;">
+                <div class="popover-header">
+                  <strong>Notas importantes</strong>
+                  <button id="btn-close-popover" class="popover-close">&times;</button>
+                </div>
+                <p id="v-instrucciones-content" class="v-instrucciones-content"></p>
+              </div>
+            </div>
+
+            <p class="instruction-text">Envía tu hoja de vida y soportes académicos/laborales a los siguientes correos electrónicos:</p>
+            <div id="postulacion-emails" class="email-list"></div>
+            
+            <p class="instruction-text">Utiliza el siguiente asunto exacto:</p>
+            <div class="subject-box">
+              <code id="postulacion-asunto">...</code>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Estado de vacante no encontrada -->
+  <div id="vacante-not-found" style="display:none;">
+    <div class="wrap error-wrap">
+      <h2>Vacante no encontrada</h2>
+      <p>La convocatoria solicitada no existe o ya no está disponible.</p>
+      <a href="/vacantes" class="btn btn-dark" style="display:inline-flex; width:auto; margin-top:20px;">← Ver otras vacantes</a>
+    </div>
+  </div>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* Variables locales en contenedor principal */
+  #vacante-container,
+  #vacante-not-found {
+    --primary: var(--color-primary, #043a39);
+    --primary-soft: #0d5250;
+    --secondary: var(--color-secondary, #f8aea1);
+    --secondary-deep: #ef8f7d;
+    --bg: var(--color-bg, #FAF8F5);
+    --surface: var(--color-surface, #FFFFFF);
+    --text: var(--color-dark, #202124);
+    --text-soft: #5b6360;
+    --neutral: #6B7280;
+    --divider: var(--color-divider, #E8E8E8);
+    --font-display: var(--font-title, "DM Serif Display", serif);
+    --font-accent: var(--font-serif, "Instrument Serif", serif);
+    --font-body: "Inter", sans-serif;
+  }
+
+  .wrap {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 clamp(24px, 6vw, 96px);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 28px;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: transform 0.25s ease, background 0.25s ease;
+  }
+
+  .btn-dark {
+    background: var(--primary);
+    color: #fff;
+    width: 100%;
+  }
+
+  .btn-dark:hover {
+    background: var(--primary-soft);
+    transform: translateY(-2px);
+  }
+
+  /* Estado de carga y animación de entrada */
+  #vacante-container {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  #vacante-container.vacante-loaded {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .vacante-loading {
+    pointer-events: none;
+  }
+
+  /* ===== HEADER VACANTE ===== */
+  .v-header {
+    padding: 40px 0 30px;
+    padding-top: calc(40px + 100px);
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-soft);
+    margin-bottom: 26px;
+    transition: color 0.2s;
+  }
+
+  .back-link:hover {
+    color: var(--primary);
+  }
+
+  .v-kicker {
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--secondary-deep);
+    margin-bottom: 8px;
+  }
+
+  .v-header h1 {
+    font-family: var(--font-body);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    color: var(--primary);
+    margin-bottom: 10px;
+  }
+
+  .v-subtitle {
+    color: var(--text-soft);
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 18px;
+  }
+
+  .v-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 0.88rem;
+    color: var(--text-soft);
+    padding-bottom: 26px;
+    border-bottom: 1px solid var(--divider);
+  }
+
+  .v-meta span {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .v-meta svg {
+    width: 16px;
+    height: 16px;
+    color: var(--secondary-deep);
+    flex: none;
+  }
+
+  /* ===== LAYOUT ===== */
+  .v-layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 64px;
+    padding: 44px 0 min(12vw, 110px);
+    align-items: start;
+  }
+
+  .v-main h2 {
+    font-family: var(--font-body);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    font-size: 1.35rem;
+    color: var(--primary);
+    margin: 40px 0 16px;
+  }
+
+  .v-main h2:first-child {
+    margin-top: 0;
+  }
+
+  .v-main p {
+    color: var(--text-soft);
+    font-size: 0.96rem;
+    margin-bottom: 14px;
+    max-width: 70ch;
+    white-space: pre-line;
+  }
+
+  .v-main :global(ul) {
+    margin: 8px 0 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .v-main :global(ul li) {
+    position: relative;
+    padding-left: 28px;
+    color: var(--text-soft);
+    font-size: 0.94rem;
+    max-width: 68ch;
+    line-height: 1.5;
+    list-style: none;
+  }
+
+  .v-main :global(ul li::before) {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 9px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--secondary-deep);
+  }
+
+  .v-callout {
+    background: var(--surface);
+    border: 1px solid var(--divider);
+    border-left: 3px solid var(--secondary-deep);
+    border-radius: 16px;
+    padding: 30px 32px;
+    margin: 36px 0;
+  }
+
+  .v-callout h3 {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--primary);
+    margin-bottom: 6px;
+  }
+
+  .v-callout > p {
+    color: var(--text-soft);
+    font-size: 0.92rem;
+    margin-bottom: 14px;
+    white-space: pre-line;
+  }
+
+  .v-mini-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-top: 36px;
+  }
+
+  .v-mini-card {
+    background: var(--surface);
+    border: 1px solid var(--divider);
+    border-radius: 16px;
+    padding: 22px;
+  }
+
+  .v-mini-card h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 8px;
+  }
+
+  .v-mini-card p {
+    color: var(--text-soft);
+    font-size: 0.86rem;
+    white-space: pre-line;
+  }
+
+  .total-value-box {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: var(--text);
+  }
+
+  /* ===== CRONOGRAMA ===== */
+  .v-cronograma {
+    overflow-x: auto;
+    margin: 16px 0 24px;
+  }
+
+  .v-cronograma table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+
+  .v-cronograma th {
+    text-align: left;
+    font-weight: 600;
+    color: var(--primary);
+    padding: 12px 16px;
+    border-bottom: 2px solid var(--divider);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .v-cronograma td {
+    padding: 12px 16px;
+    color: var(--text-soft);
+    border-bottom: 1px solid var(--divider);
+  }
+
+  .v-cronograma tr:hover td {
+    background: rgba(248, 174, 161, 0.04);
+  }
+
+  /* ===== SIDEBAR ===== */
+  .v-sidebar {
+    position: sticky;
+    top: 96px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .v-summary {
+    background: var(--surface);
+    border: 1px solid var(--divider);
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 30px 60px -40px rgba(4, 58, 57, 0.25);
+  }
+
+  .v-summary h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 20px;
+  }
+
+  .v-field {
+    padding: 14px 0;
+    border-top: 1px solid var(--divider);
+  }
+
+  .v-field:first-of-type {
+    border-top: none;
+  }
+
+  .v-field .lbl {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--neutral);
+    margin-bottom: 5px;
+  }
+
+  .v-field .val {
+    font-size: 0.9rem;
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .v-field .val.deadline {
+    color: var(--secondary-deep);
+    font-weight: 600;
+  }
+
+  .postulation-action-box {
+    position: relative;
+    margin-top: 18px;
+    width: 100%;
+  }
+
+  .btn-dark svg {
+    margin-right: 4px;
+    flex: none;
+  }
+
+  .v-toast {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #111827;
+    color: #ffffff;
+    font-size: 0.76rem;
+    padding: 8px 12px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    white-space: nowrap;
+    z-index: 10;
+    pointer-events: none;
+    animation: fadeInToast 0.2s ease-out;
+  }
+
+  @keyframes fadeInToast {
+    from { opacity: 0; transform: translate(-50%, 4px); }
+    to { opacity: 1; transform: translate(-50%, 0); }
+  }
+
+  .v-apply {
+    background: var(--bg);
+    border: 1px solid var(--divider);
+    border-radius: 20px;
+    padding: 24px;
+  }
+
+  .v-apply h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 12px;
+  }
+
+  /* Popover e Instrucciones */
+  .popover-wrapper {
+    position: relative;
+    width: 100%;
+    margin-bottom: 14px;
+  }
+
+  .info-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    border: none;
+    color: var(--secondary-deep);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+
+  .info-btn:hover {
+    color: var(--primary);
+  }
+
+  .info-btn svg {
+    flex: none;
+  }
+
+  .instructions-popover {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 0;
+    width: 100%;
+    max-width: 320px;
+    background: var(--surface);
+    border: 1px solid var(--divider);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 10px 25px -5px rgba(4, 58, 57, 0.15);
+    z-index: 20;
+    animation: slideUpPopover 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes slideUpPopover {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .popover-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--divider);
+    padding-bottom: 6px;
+  }
+
+  .popover-header strong {
+    font-size: 0.82rem;
+    color: var(--primary);
+  }
+
+  .popover-close {
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    line-height: 1;
+    color: var(--neutral);
+    cursor: pointer;
+    padding: 0 4px;
+  }
+
+  .popover-close:hover {
+    color: var(--text);
+  }
+
+  .v-instrucciones-content {
+    white-space: pre-line;
+    margin: 0;
+    font-size: 0.8rem !important;
+    color: var(--text-soft);
+    line-height: 1.5;
+  }
+
+  .instruction-text {
+    font-size: 0.8rem !important;
+    color: var(--text-soft);
+    margin: 8px 0;
+    line-height: 1.4;
+  }
+
+  .email-list {
+    margin-bottom: 12px;
+  }
+
+  .email-list a {
+    display: block;
+    font-size: 0.82rem;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 4px;
+    word-break: break-all;
+    transition: color 0.2s;
+  }
+
+  .email-list a:hover {
+    color: var(--secondary-deep);
+  }
+
+  .v-apply .subject-box {
+    margin-top: 6px;
+    background: var(--surface);
+    border: 1px dashed var(--divider);
+    border-radius: 10px;
+    padding: 10px 12px;
+  }
+
+  .v-apply .subject-box code {
+    font-family: monospace;
+    font-size: 0.74rem;
+    color: var(--text-soft);
+    word-break: break-all;
+  }
+
+  .error-wrap {
+    text-align: center;
+    padding: 120px 24px;
+  }
+
+  .error-wrap h2 {
+    color: var(--primary);
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+  }
+
+  .error-wrap p {
+    color: var(--text-soft);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 960px) {
+    .v-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .v-sidebar {
+      position: static;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .v-mini-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  import { vacantesList } from '../components/data/vacantesData.js';
+
+  const initDetalle = () => {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id') || 'vacante-1';
+
+    const container = document.getElementById('vacante-container');
+    const notFound = document.getElementById('vacante-not-found');
+
+    const vacante: any = vacantesList.find((v: any) => v.id === id);
+
+    if (!vacante) {
+      if (container) container.style.display = 'none';
+      if (notFound) notFound.style.display = 'block';
+      return;
+    }
+
+    // Actualizar Título de la pestaña
+    document.title = `${vacante.title} — Convocatorias CORPPAZ`;
+
+    // Formatear texto respetando saltos de párrafo y viñetas, pero uniendo oraciones cortadas
+    const cleanText = (text: string) => {
+      if (!text) return "";
+      
+      // Normalizar saltos de línea a \n
+      let normalized = text
+        .replace(/\\r\\n/g, "\n")
+        .replace(/\\n/g, "\n")
+        .replace(/\r\n/g, "\n")
+        .replace(/\r/g, "\n");
+
+      const lines = normalized.split("\n");
+      let result = "";
+      
+      for (let i = 0; i < lines.length; i++) {
+        const currentLine = lines[i].trim();
+        if (!currentLine) {
+          // Si ya terminó en salto de párrafo, no agregar otro para evitar espacios gigantes
+          if (result && !result.endsWith("\n\n")) {
+            result += "\n\n";
+          }
+          continue;
+        }
+        
+        if (result) {
+          if (result.endsWith("\n\n")) {
+            result += currentLine;
+          } else {
+            // Si la línea actual empieza con viñeta (✓, -, •, *, etc.) o número, forzar salto de línea
+            const startsWithBullet = /^[✓\-•\*\u2713\d]/.test(currentLine);
+            if (startsWithBullet) {
+              result += "\n" + currentLine;
+            } else {
+              // De lo contrario, unir con un espacio simple
+              result += " " + currentLine;
+            }
+          }
+        } else {
+          result += currentLine;
+        }
+      }
+      
+      return result.replace(/[ ]{2,}/g, " ").trim();
+    };
+
+    // Rellenar Datos Simples
+    const vTitle = document.getElementById('v-title');
+    const vSubtitle = document.getElementById('v-subtitle');
+    const metaLocation = document.getElementById('meta-location');
+    const metaArea = document.getElementById('meta-area');
+    const metaContract = document.getElementById('meta-contract');
+    const vAntecedentes = document.getElementById('v-antecedentes');
+    const vObjeto = document.getElementById('v-objeto');
+    const vAlcance = document.getElementById('v-alcance');
+    const vSupervisor = document.getElementById('v-supervisor');
+    const vFormaPago = document.getElementById('v-forma-pago');
+    const vTotalValue = document.getElementById('v-total-value');
+
+    if (vTitle) vTitle.textContent = vacante.title;
+    if (vSubtitle) vSubtitle.textContent = vacante.subTitle;
+    if (metaLocation) metaLocation.textContent = vacante.location;
+    if (metaArea) metaArea.textContent = vacante.area;
+    if (metaContract) metaContract.textContent = vacante.contractType;
+    if (vAntecedentes) vAntecedentes.textContent = cleanText(vacante.antecedentes);
+    if (vObjeto) vObjeto.textContent = cleanText(vacante.objeto);
+    if (vAlcance) vAlcance.textContent = cleanText(vacante.alcance);
+    if (vSupervisor) vSupervisor.textContent = cleanText(vacante.supervisor);
+    if (vFormaPago) vFormaPago.textContent = cleanText(vacante.formaPago);
+
+    if (vTotalValue) {
+      if (vacante.totalValue) {
+        vTotalValue.style.display = 'block';
+        vTotalValue.innerHTML = `<strong>Valor total:</strong> ${vacante.totalValue}`;
+      } else {
+        vTotalValue.style.display = 'none';
+      }
+    }
+
+    // Rellenar Listas Dinámicas
+    const renderList = (elId: string, items: string[], secId: string) => {
+      const el = document.getElementById(elId);
+      const sec = document.getElementById(secId);
+      if (el && sec) {
+        if (items && items.length > 0) {
+          sec.style.display = 'block';
+          el.innerHTML = items.map(item => `<li>${item}</li>`).join('');
+        } else {
+          sec.style.display = 'none';
+        }
+      }
+    };
+
+    renderList('list-actividades', vacante.actividades, 'sec-actividades');
+    renderList('list-productos', vacante.productos, 'sec-productos');
+    renderList('list-perfil', vacante.perfil, 'sec-perfil');
+    renderList('list-documentos', vacante.documentos, 'sec-documentos');
+    renderList('list-principios', vacante.principios, 'sec-principios');
+
+    // Resumen y Postulación
+    const sumLocation = document.getElementById('summary-location');
+    const sumArea = document.getElementById('summary-area');
+    const sumContract = document.getElementById('summary-contract');
+    const sumSalary = document.getElementById('summary-salary');
+    const sumDuration = document.getElementById('summary-duration');
+    const sumDeadline = document.getElementById('summary-deadline');
+    const sumTotalValRow = document.getElementById('summary-total-val-row');
+    const sumTotalVal = document.getElementById('summary-total-val');
+    const btnApply = document.getElementById('btn-apply-email') as HTMLButtonElement;
+    const toast = document.getElementById('copied-toast');
+
+    if (sumLocation) sumLocation.textContent = vacante.location;
+    if (sumArea) sumArea.textContent = vacante.area;
+    if (sumContract) sumContract.textContent = vacante.contractType;
+    if (sumSalary) sumSalary.textContent = vacante.salary;
+    if (sumDuration) sumDuration.textContent = vacante.duration;
+
+    // Calcular y mostrar totalValue corto
+    const getTotalValueShort = (totalVal: string) => {
+      if (!totalVal) return null;
+      const match = totalVal.match(/\(\$([^)]+)\)/);
+      if (match && match[1]) {
+        return `$${match[1].replace('$', '')} COP`;
+      }
+      return totalVal;
+    };
+
+    const totalValueShort = getTotalValueShort(vacante.totalValue);
+    if (sumTotalValRow && sumTotalVal) {
+      if (totalValueShort) {
+        sumTotalValRow.style.display = 'block';
+        sumTotalVal.textContent = totalValueShort;
+      } else {
+        sumTotalValRow.style.display = 'none';
+      }
+    }
+
+    // Buscar fecha de cierre
+    const cierre = vacante.cronograma?.find((c: any) =>
+      c.actividad.toLowerCase().includes('cierre') || c.actividad.toLowerCase().includes('recepción')
+    );
+    if (sumDeadline) {
+      sumDeadline.textContent = cierre ? `${cierre.fecha} (${cierre.hora})` : 'Ver cronograma';
+    }
+
+    // Acción de postulación: copiar emails, mostrar toast y abrir mailto
+    if (btnApply && vacante.postulacion?.emails) {
+      btnApply.onclick = () => {
+        const emailsStr = vacante.postulacion.emails.join('; ');
+        navigator.clipboard.writeText(emailsStr).then(() => {
+          if (toast) {
+            toast.style.display = 'block';
+            setTimeout(() => {
+              toast.style.display = 'none';
+            }, 3000);
+          }
+
+          // Mailto pre-rellenado
+          const mailtoLink = `mailto:${vacante.postulacion.emails.join(',')}?subject=${encodeURIComponent(vacante.postulacion.asunto)}&body=${encodeURIComponent("Hola, estoy interesado en postularme a la vacante de " + vacante.title + ". Adjunto mi hoja de vida y soportes correspondientes.")}`;
+          window.location.href = mailtoLink;
+        });
+      };
+    }
+
+    // Popover de instrucciones
+    const secInstrucciones = document.getElementById('sec-instrucciones');
+    const vInstruccionesContent = document.getElementById('v-instrucciones-content');
+    const btnToggleInstructions = document.getElementById('btn-toggle-instructions');
+    const btnClosePopover = document.getElementById('btn-close-popover');
+    const instructionsPopover = document.getElementById('instructions-popover');
+
+    if (secInstrucciones && vInstruccionesContent && vacante.postulacion?.instrucciones) {
+      secInstrucciones.style.display = 'block';
+      vInstruccionesContent.textContent = vacante.postulacion.instrucciones;
+      
+      if (btnToggleInstructions && instructionsPopover) {
+        btnToggleInstructions.onclick = (e) => {
+          e.stopPropagation();
+          const isClosed = instructionsPopover.style.display === 'none';
+          instructionsPopover.style.display = isClosed ? 'block' : 'none';
+        };
+      }
+
+      if (btnClosePopover && instructionsPopover) {
+        btnClosePopover.onclick = (e) => {
+          e.stopPropagation();
+          instructionsPopover.style.display = 'none';
+        };
+      }
+
+      // Cerrar popover si se hace click fuera
+      document.addEventListener('click', (e) => {
+        if (instructionsPopover && !instructionsPopover.contains(e.target as Node)) {
+          instructionsPopover.style.display = 'none';
+        }
+      });
+    } else if (secInstrucciones) {
+      secInstrucciones.style.display = 'none';
+    }
+
+    const listEmails = document.getElementById('postulacion-emails');
+    if (listEmails && vacante.postulacion?.emails) {
+      listEmails.innerHTML = vacante.postulacion.emails.map((m: string) => `
+        <a href="mailto:${m}">${m}</a>
+      `).join('');
+    }
+
+    const asunto = document.getElementById('postulacion-asunto');
+    if (asunto) {
+      asunto.textContent = vacante.postulacion?.asunto || '';
+    }
+
+    // Quitar estado de carga y aplicar animación
+    if (container) {
+      container.classList.remove('vacante-loading');
+      setTimeout(() => {
+        container.classList.add('vacante-loaded');
+      }, 60);
+    }
+  };
+
+  // Inicializar en carga inicial y después de swaps de Astro
+  initDetalle();
+  document.addEventListener('astro:after-swap', initDetalle);
+</script>

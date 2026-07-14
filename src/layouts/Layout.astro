@@ -5,8 +5,8 @@ interface Props {
 }
 
 const {
-  title = 'CORPPAZ — Corporación Todos por la Paz',
-  description = 'Proyectos que transforman vidas, fortalecen comunidades y construyen país.'
+  title = "CORPPAZ — Corporación Todos por la Paz",
+  description = "Proyectos que transforman vidas, fortalecen comunidades y construyen país.",
 } = Astro.props;
 ---
 
@@ -38,7 +38,9 @@ const {
 
 <style is:global>
   /* ── Reset & Base ── */
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -50,17 +52,17 @@ const {
     --color-primary-dark: #043a39;
     --color-secondary: #f8aea1;
     --color-secondary-dark: #f8aea1;
-    --color-bg: #FAF8F5;
-    --color-surface: #FFFFFF;
+    --color-bg: #faf8f5;
+    --color-surface: #ffffff;
     --color-dark: #202124;
-    --color-success: #2E7D32;
-    --color-neutral: #6B7280;
-    --color-divider: #E8E8E8;
+    --color-success: #2e7d32;
+    --color-neutral: #6b7280;
+    --color-divider: #e8e8e8;
 
     /* Typography */
-    --font-body: 'Inter', sans-serif;
-    --font-serif: 'Instrument Serif', serif;
-    --font-title: 'DM Serif Display', serif;
+    --font-body: "Inter", sans-serif;
+    --font-serif: "Instrument Serif", serif;
+    --font-title: "DM Serif Display", serif;
 
     /* Spacing */
     --space-xs: 4px;
@@ -82,7 +84,8 @@ const {
   }
 
   /* Lenis smooth scrolling helper styles */
-  html.lenis, html.lenis body {
+  html.lenis,
+  html.lenis body {
     height: auto;
   }
   .lenis.lenis-smooth {
@@ -98,7 +101,8 @@ const {
     pointer-events: none;
   }
 
-  html, body {
+  html,
+  body {
     width: 100%;
     min-height: 100%;
     font-family: var(--font-body);
@@ -111,7 +115,8 @@ const {
     overflow-x: hidden;
   }
 
-  img, video {
+  img,
+  video {
     max-width: 100%;
     height: auto;
     display: block;
@@ -122,7 +127,8 @@ const {
     color: inherit;
   }
 
-  ul, ol {
+  ul,
+  ol {
     list-style: none;
   }
 
@@ -135,9 +141,9 @@ const {
 </style>
 
 <script>
-  import Lenis from 'lenis';
-  import { gsap } from 'gsap';
-  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  import Lenis from "lenis";
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -149,7 +155,7 @@ const {
   });
 
   // Conectar ScrollTrigger con Lenis
-  lenis.on('scroll', ScrollTrigger.update);
+  lenis.on("scroll", ScrollTrigger.update);
 
   // Usar el ticker de GSAP para manejar el scroll frame-by-frame
   gsap.ticker.add((time) => {
@@ -158,4 +164,3 @@ const {
 
   gsap.ticker.lagSmoothing(0);
 </script>
-

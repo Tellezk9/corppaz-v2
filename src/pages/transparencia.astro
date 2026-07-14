@@ -1,0 +1,421 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import { Image } from "astro:assets";
+import logoBig from "../assets/corppaz-icon-big.png";
+---
+
+<Layout
+  title="Transparencia y Cumplimiento — CORPPAZ"
+  description="En Corppaz estamos comprometidos con la transparencia y la rendición de cuentas en todas nuestras acciones."
+>
+  <Navbar />
+
+  <!-- ===== HEADER DE PAGINA ===== -->
+  <section class="page-header">
+    <div class="cta-rings">
+      <Image 
+        src={logoBig}
+        alt="Imagen de fondo" 
+        width={525}
+        height={510} 
+      />
+    </div>
+    <div class="wrap">
+      <span class="eyebrow reveal">Rendición de cuentas</span>
+      <h1 class="reveal">
+        Transparencia y <span class="accent-italic">cumplimiento</span>
+      </h1>
+      <div class="intro reveal">
+        <p>En Corppaz estamos comprometidos con la transparencia y la rendición de cuentas en todas nuestras acciones. Creemos que la transparencia es fundamental para construir confianza con nuestros donantes, colaboradores, beneficiarios y la comunidad en general. Por eso, ponemos a disposición del público toda la información relevante sobre nuestra organización, incluyendo nuestros estados financieros, informes de auditoría, documentos legales y detalles de nuestros proyectos.</p>
+        <p>Creemos en el poder de la colaboración y la participación ciudadana para lograr un cambio social positivo. Por ello, trabajamos en alianza con diversas instituciones gubernamentales y organizaciones de la sociedad civil para maximizar nuestro impacto y llegar a más personas en situación de vulnerabilidad.</p>
+        <p>Nuestros proyectos se enfocan en áreas clave como la seguridad alimentaria, el desarrollo agropecuario, el emprendimiento y la construcción de paz en comunidades afectadas por el conflicto armado. Buscamos generar oportunidades, fortalecer capacidades y promover la inclusión social para construir un futuro más equitativo y sostenible para todos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ACORDEONES DE DOCUMENTOS ===== -->
+  <section class="docs-section">
+    <div class="wrap">
+      <div class="acc">
+
+        <details class="acc-item reveal" open>
+          <summary>
+            Documentos legales
+            <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </summary>
+          <div class="acc-body">
+            <ul>
+              <li>
+                <strong>Acta Corppaz 007:</strong> Autorización de trámite de régimen legal especial.
+                <a href="#" class="doc-link">
+                  Descargar PDF
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <strong>Acta Estatutaria Corppaz:</strong> Acta estatutaria de Corppaz.
+                <a href="#" class="doc-link">
+                  Descargar PDF
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <strong>Certificación de antecedentes:</strong> Certificación de los antecedentes judiciales y declaración de caducidad de contratos estatales de Corppaz.
+                <a href="#" class="doc-link">
+                  Descargar PDF
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <strong>Estatutos Corppaz:</strong> Estatutos de la organización.
+                <a href="#" class="doc-link">
+                  Descargar PDF
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" />
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="acc-item reveal" open>
+          <summary>
+            Certificados y estados financieros
+            <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </summary>
+          <div class="acc-body">
+            <ul>
+              <li>
+                <strong>Certificado de cumplimiento:</strong> Certificado de cumplimiento de requisitos numeral 13 de Corppaz.
+                <a href="#" class="doc-link">
+                  Descargar PDF
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <strong>Estados financieros 2023:</strong> Estados financieros de Corppaz correspondientes al año 2023.
+                <a href="#" class="doc-link">
+                  Descargar PDF
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <strong>Renta Corppaz 2023:</strong> Declaración de renta de Corppaz correspondiente al año 2023.
+                <a href="#" class="doc-link">
+                  Descargar PDF
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" />
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="acc-item reveal" open>
+          <summary>
+            Otros documentos
+            <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </summary>
+          <div class="acc-body">
+            <ul>
+              <li>
+                <strong>Existencia Corppaz:</strong> Documento que certifica la existencia legal de Corppaz.
+                <a href="#" class="doc-link">
+                  Descargar PDF
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <strong>Informe de gestión Corppaz 2023:</strong> Responsabilidad social.
+                <a href="#" class="doc-link">
+                  Descargar PDF
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" />
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* Variables locales de tema */
+  .page-header,
+  .docs-section {
+    --primary: var(--color-primary, #043a39);
+    --primary-soft: #0d5250;
+    --secondary: var(--color-secondary, #f8aea1);
+    --secondary-deep: #ef8f7d;
+    --bg: var(--color-bg, #faf8f5);
+    --surface: var(--color-surface, #ffffff);
+    --text: var(--color-dark, #202124);
+    --text-soft: #5b6360;
+    --neutral: #6b7280;
+    --divider: var(--color-divider, #e8e8e8);
+    --font-display: var(--font-title, "DM Serif Display", serif);
+    --font-accent: var(--font-serif, "Instrument Serif", serif);
+    --font-body: "Inter", sans-serif;
+  }
+
+  .wrap {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 clamp(24px, 6vw, 96px);
+  }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--secondary-deep);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .eyebrow::before {
+    content: "";
+    width: 22px;
+    height: 1px;
+    background: var(--secondary-deep);
+    display: inline-block;
+  }
+
+  .accent-italic {
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-weight: 450;
+    color: var(--secondary-deep);
+  }
+
+  /* ===== PAGE HEADER ===== */
+  .page-header {
+    padding: min(10vw, 90px) 0 32px;
+    padding-top: calc(min(10vw, 90px) + 80px);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page-header .wrap {
+    position: relative;
+    z-index: 1;
+  }
+
+  .page-header h1 {
+    font-family: var(--font-body);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    line-height: 1.02;
+    color: var(--primary);
+    margin-bottom: 26px;
+    max-width: 18ch;
+  }
+
+  .cta-rings {
+    position: absolute;
+    top: -15%;
+    right: -5%;
+    width: 480px;
+    opacity: 0.15;
+    pointer-events: none;
+  }
+
+  .cta-rings img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .intro p {
+    color: var(--text-soft);
+    font-size: 1rem;
+    max-width: 78ch;
+    margin-bottom: 16px;
+  }
+
+  /* ===== ACORDEON ===== */
+  .docs-section {
+    padding: 16px 0 min(12vw, 110px);
+  }
+
+  .acc {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 920px;
+  }
+
+  .acc-item {
+    background: var(--surface);
+    border: 1px solid var(--divider);
+    border-radius: 18px;
+    overflow: hidden;
+  }
+
+  .acc-item summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 28px;
+    font-weight: 600;
+    color: var(--primary);
+    font-size: 1.05rem;
+    letter-spacing: -0.02em;
+  }
+
+  .acc-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .acc-chevron {
+    width: 20px;
+    height: 20px;
+    flex: none;
+    color: var(--secondary-deep);
+    transition: transform 0.3s ease;
+  }
+
+  .acc-item[open] .acc-chevron {
+    transform: rotate(180deg);
+  }
+
+  .acc-body {
+    padding: 0 28px 26px;
+  }
+
+  .acc-body ul {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .acc-body li {
+    font-size: 0.94rem;
+    color: var(--text-soft);
+    line-height: 1.6;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--divider);
+  }
+
+  .acc-body li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .acc-body strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .doc-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 6px;
+    color: var(--secondary-deep);
+    font-weight: 600;
+    font-size: 0.88rem;
+    white-space: nowrap;
+    transition: color 0.2s;
+  }
+
+  .doc-link:hover {
+    color: var(--primary);
+  }
+
+  .doc-link svg {
+    width: 13px;
+    height: 13px;
+    stroke-width: 2;
+  }
+
+  /* ===== ANIMACIONES REVEAL ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.7s ease,
+      transform 0.7s ease;
+  }
+
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .cta-rings {
+      width: 280px;
+      top: -5%;
+      right: -8%;
+      opacity: 0.08;
+    }
+  }
+</style>
+
+<script>
+  const initTransparencia = () => {
+    const els = document.querySelectorAll(".reveal");
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("in");
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    els.forEach((el) => io.observe(el));
+  };
+
+  initTransparencia();
+  document.addEventListener("astro:after-swap", initTransparencia);
+</script>

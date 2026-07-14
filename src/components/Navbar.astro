@@ -54,7 +54,7 @@ import { Image } from "astro:assets";
           </a>
         </li>
         <li>
-          <a href="/servicios" class="navbar__link">
+          <a href="/#servicios" class="navbar__link">
             <svg
               width="16"
               height="16"
@@ -72,7 +72,7 @@ import { Image } from "astro:assets";
           </a>
         </li>
         <li>
-          <a href="/nosotros" class="navbar__link">
+          <a href="/#sobre" class="navbar__link">
             <svg
               width="16"
               height="16"
@@ -119,16 +119,23 @@ import { Image } from "astro:assets";
             >
           </button>
           <div class="navbar__dropdown-panel">
-            <a href="/hero/v1" class="navbar__dropdown-item">Hero v1</a>
-            <a href="/hero/v2" class="navbar__dropdown-item">Hero v2</a>
-            <a href="/hero/v3" class="navbar__dropdown-item">Hero v3</a>
+            <a href="/transparencia" class="navbar__dropdown-item"
+              >Nuestro Programa Social</a
+            >
           </div>
         </li>
       </ul>
 
       <!-- Action Buttons -->
       <div class="navbar__actions">
-        <a href="/contacto" class="navbar__btn navbar__btn--solid">
+        <a href="/vacantes" class="navbar__btn navbar__btn--outline">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="7" width="20" height="14" rx="2"></rect>
+    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+  </svg>
+          Vacantes
+        </a>
+        <a href="/#contacto" class="navbar__btn navbar__btn--solid">
           Contáctanos
           <svg
             width="14"
@@ -337,20 +344,25 @@ import { Image } from "astro:assets";
     letter-spacing: 0.2px;
   }
 
-  .navbar__btn--outline {
-    border: 1.5px solid var(--color-divider);
-    color: var(--color-dark);
-    background: transparent;
-  }
+.navbar__btn--outline {
+  border: 1.5px solid var(--color-primary);
+  color: var(--color-primary);
+  background: transparent;
+  letter-spacing: -0.02em;
+}
 
-  .navbar__btn--outline:hover {
-    border-color: var(--color-primary);
-    color: var(--color-primary);
-    background: rgba(107, 143, 60, 0.04);
-  }
+.navbar__btn--outline:hover {
+  border-color: var(--color-primary);
+  color: #fff;
+  background: var(--color-primary);
+}
 
   .navbar__btn--solid {
-    background-image: linear-gradient(135deg, var(--color-secondary) 0%, #e07f6e 100%);
+    background-image: linear-gradient(
+      135deg,
+      var(--color-secondary) 0%,
+      #e07f6e 100%
+    );
     box-shadow: 0 5px 5px -1px rgba(224, 127, 110, 0.5);
     color: #fff;
     border: none;
@@ -511,11 +523,12 @@ import { Image } from "astro:assets";
 
   if (navbar) {
     // Animación de entrada (spring con bounce: 0.2, duration: 1s, delay: 0)
-    gsap.fromTo(navbar,
+    gsap.fromTo(
+      navbar,
       {
         opacity: 0,
         y: -30,
-        xPercent: -50
+        xPercent: -50,
       },
       {
         opacity: 1,
@@ -523,22 +536,22 @@ import { Image } from "astro:assets";
         xPercent: -50,
         duration: 1.0,
         ease: "back.out(0.6)", // bounce: 0.2
-        delay: 0
-      }
+        delay: 0,
+      },
     );
 
     const mm = gsap.matchMedia();
- 
+
     // Pantallas grandes (Desktop >= 1200px)
     mm.add("(min-width: 1200px)", () => {
       const shrinkAnim = gsap.to(navbar, {
-        width: "55%",
+        width: "60%",
         duration: 0.4,
         ease: "back.out(0.6)", // bounce: 0.2
         paused: true,
-        overwrite: "auto"
+        overwrite: "auto",
       });
- 
+
       ScrollTrigger.create({
         start: "top+=80 top",
         end: 99999,
@@ -548,10 +561,10 @@ import { Image } from "astro:assets";
           } else {
             shrinkAnim.reverse();
           }
-        }
+        },
       });
     });
- 
+
     // Pantallas medianas / Tablets (769px a 1199px)
     mm.add("(min-width: 769px) and (max-width: 1199px)", () => {
       const shrinkAnim = gsap.to(navbar, {
@@ -559,9 +572,9 @@ import { Image } from "astro:assets";
         duration: 0.4,
         ease: "back.out(0.6)", // bounce: 0.2
         paused: true,
-        overwrite: "auto"
+        overwrite: "auto",
       });
- 
+
       ScrollTrigger.create({
         start: "top+=80 top",
         end: 99999,
@@ -571,7 +584,7 @@ import { Image } from "astro:assets";
           } else {
             shrinkAnim.reverse();
           }
-        }
+        },
       });
     });
 
@@ -593,7 +606,7 @@ import { Image } from "astro:assets";
               y: 0,
               duration: 0.35,
               ease: "power2.out",
-              overwrite: "auto"
+              overwrite: "auto",
             });
             isNavbarHidden = false;
           }
@@ -607,22 +620,22 @@ import { Image } from "astro:assets";
               y: -120, // sube fuera del viewport
               duration: 0.35,
               ease: "power2.out",
-              overwrite: "auto"
+              overwrite: "auto",
             });
             isNavbarHidden = true;
           }
-        } 
+        }
         // Si subimos, mostramos de inmediato
         else if (direction === -1 && isNavbarHidden) {
           gsap.to(navbar, {
             y: 0,
             duration: 0.35,
             ease: "power2.out",
-            overwrite: "auto"
+            overwrite: "auto",
           });
           isNavbarHidden = false;
         }
-      }
+      },
     });
   }
 </script>
