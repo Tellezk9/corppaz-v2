@@ -1,11 +1,18 @@
 ---
 import { Image } from "astro:assets";
-import agricultura from "../../assets/brands/Agricultura_gris.png";
-import alianzas from "../../assets/brands/Alianzas_gris.png";
-import faia from "../../assets/brands/Faia_gris.png";
-import santander from "../../assets/brands/Santander_logo_gris.png";
-import fiduagraria from "../../assets/brands/fiduagraria_gris.png";
-import presidencia from "../../assets/brands/presidencia_gris.png";
+import agricultura from "../../assets/brands/agricultura.webp";
+import pamplona from "../../assets/brands/alcaldía-pamplona.webp";
+import tibu from "../../assets/brands/alcaldia-tibu.webp";
+import alianzas from "../../assets/brands/Alianzas.png";
+import cucuta from "../../assets/brands/cucuta.webp";
+import desarrolloRural from "../../assets/brands/desarrollo-rural.webp";
+import faia from "../../assets/brands/Faia.png";
+import fiduagraria from "../../assets/brands/fiduagraria.png";
+import presidencia from "../../assets/brands/presidencia.png";
+import santander from "../../assets/brands/santander.webp";
+import superSubsidio from "../../assets/brands/superSubsidio.webp";
+import tarra from "../../assets/brands/tarra.webp";
+import toledo from "../../assets/brands/toledo.webp";
 
 const logos = [
   { src: agricultura, alt: "Ministerio de Agricultura" },
@@ -14,6 +21,13 @@ const logos = [
   { src: santander, alt: "Gobernación de Santander" },
   { src: fiduagraria, alt: "Fiduagraria" },
   { src: presidencia, alt: "Presidencia de la República de Colombia" },
+  { src: superSubsidio, alt: "SuperSubsidio" },
+  { src: tarra, alt: "Tarra" },
+  { src: toledo, alt: "Toledo" },
+  { src: pamplona, alt: "Alcaldía de Pamplona" },
+  { src: tibu, alt: "Alcaldía de Tibú" },
+  { src: cucuta, alt: "Alcaldía de Cúcuta" },
+  { src: desarrolloRural, alt: "Ministerio de Desarrollo Rural" },
 ];
 ---
 
@@ -122,11 +136,11 @@ const logos = [
     display: flex;
     width: max-content;
     gap: 0; /* Sin gap entre grupos para que el cálculo por xPercent sea exacto */
-    cursor: grab;
+    /* cursor: grab; */
   }
 
   .aliados-track:active {
-    cursor: grabbing;
+    /* cursor: grabbing; */
   }
 
   .aliados-group {
@@ -192,7 +206,7 @@ const logos = [
     gsap.to(track, {
       xPercent: -25,
       ease: "none",
-      duration: 18, // Velocidad de la marquesina
+      duration: 50, // Velocidad de la marquesina
       repeat: -1,
     });
   };
