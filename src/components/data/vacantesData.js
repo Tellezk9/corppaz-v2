@@ -206,7 +206,7 @@ export const vacantesList = [
     "salary": "$4.500.000 COP mensual",
     "duration": "Doce (12) meses, conforme al cronograma del proyecto.",
     "antecedentes": "En el marco del Memorando de Acuerdo MA 571 de 2026 suscrito entre las Naciones Unidas,\r\na través de la Oficina de las Naciones Unidas contra la Droga y el Delito, y la\r\nCORPORACIÓN TODOS POR LA PAZ – CORPPAZ, en calidad de socio implementador, se\r\nadelanta la ejecución del proyecto denominado:\r\n“El pueblo Bari consolida un modelo de desarrollo agropecuario eficiente y sostenible”.\r\nEste proyecto se desarrolla en articulación con la Agencia de Desarrollo Rural, en el marco\r\ndel Convenio No. 1226 de 2023, orientado a la implementación de Proyectos Integrales de\r\nDesarrollo Agropecuario y Rural – PIDAR, con el propósito de promover el desarrollo\r\ncompetitivo, sostenible y con enfoque territorial en comunidades rurales.\r\nLa iniciativa está dirigida al fortalecimiento de las capacidades productivas, organizativas,\r\nambientales y comerciales de las familias beneficiarias del Resguardo Indígena Catalaura,\r\nperteneciente al pueblo Bari, mediante la implementación de sistemas productivos\r\nsostenibles, el mejoramiento de infraestructura productiva, el acceso a bienes y servicios\r\nagropecuarios, y el acompañamiento técnico integral.\r\nEn este contexto, el proyecto contempla la ejecución de componentes clave como:\r\n✓ Asistencia técnica integral a las unidades productivas\r\n✓ Implementación de planes de capacitación y extensión rural\r\n✓ Desarrollo de infraestructura productiva (centros de beneficio, biocobertizos, entre\r\notros)\r\n✓ Fortalecimiento socio-organizacional\r\n✓ Implementación de estrategias de sostenibilidad ambiental\r\n✓ Dotación de insumos, equipos y materiales productivos\r\nEn cumplimiento de las obligaciones establecidas en el Memorando de Acuerdo, así como\r\nde los requisitos definidos para la ejecución de los recursos y la obtención de los\r\ndesembolsos, se hace necesario adelantar procesos contractuales que garanticen la\r\nadecuada implementación de las actividades del proyecto, bajo criterios de\r\ntransparencia, calidad técnica y eficiencia.\r\nEn este sentido, se formulan los presentes Términos de Referencia con el fin de establecer\r\nlas condiciones técnicas, administrativas y operativas para la contratación del personal\r\nProfesional agrícola especialista en cacao, asegurando su alineación con los objetivos del\r\nproyecto y los lineamientos establecidos por Oficina de las Naciones Unidas contra la\r\nDroga y el Delito.",
-    "objeto": "Contratar dos (2) profesionales agrícolas especialistas en cacao para la prestación de\r\nservicios de asistencia técnica a las familias beneficiarias del proyecto.",
+    "objeto": "Contratar un (1) profesional agrícola especialista en cacao para la prestación de servicios \r\n de asistencia técnica a las familias beneficiarias del proyecto.",
     "alcance": "Los profesionales serán responsables de liderar la implementación técnica del componente\r\nagrícola del proyecto, incluyendo el establecimiento, manejo, seguimiento y\r\nfortalecimiento de los cultivos de cacao, así como la articulación con los demás\r\ncomponentes productivos.",
     "actividades": [
       "Apoyar desde su conocimiento y perfil profesional los procesos de elaboración de términos de referencia para la compra de insumos relacionados con el cultivo de cacao, el funcionamiento de las biofábricas y el componente agrícola de las granjas integrales.",
@@ -274,19 +274,19 @@ export const vacantesList = [
       },
       {
         "actividad": "Cierre y recepción de hojas de vida en medio magnético hasta",
-        "fecha": "10 julio 2026",
+        "fecha": "23 julio 2026",
         "hora": "10:00 am",
         "lugar": "corporaciontodosporlapaz@gmail.com cesar.carrillogelvez1@un.org"
       },
       {
         "actividad": "CTL de cierre de la convocatoria",
-        "fecha": "10 julio 2026",
+        "fecha": "23 julio 2026",
         "hora": "2:00 pm",
         "lugar": "Oficina Corppaz"
       },
       {
         "actividad": "CTL de revisión de hoja de vida de los aspirantes, y preselección",
-        "fecha": "10 julio 2026",
+        "fecha": "23 julio 2026",
         "hora": "2:00 pm",
         "lugar": "Oficina Corppaz"
       },
